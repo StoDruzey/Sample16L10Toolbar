@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.sample16l10toolbar.databinding.FragmentToolbarBinding
+import com.google.android.material.snackbar.Snackbar
 
 class ToolbarFragment : Fragment() {
 
@@ -33,6 +34,29 @@ class ToolbarFragment : Fragment() {
             toolbar.setNavigationOnClickListener {
 //                findNavController().navigateUp()
                 Toast.makeText(requireContext(), "1234", Toast.LENGTH_SHORT).show()
+            }
+            toolbar.setOnMenuItemClickListener {
+//                if (it.itemId == R.id.menu_item1) {
+//                    true
+//                } else {
+//                    false
+//                }
+                when (it.itemId) {
+                    R.id.menu_item1 -> {
+                        Toast.makeText(
+                            requireContext(), "Menu1", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.menu_item2 -> {
+                        Snackbar.make(view, "Menu2", Snackbar.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.menu_item3 -> {
+                        Snackbar.make(view, "Menu3", Snackbar.LENGTH_SHORT).show()
+                        true
+                    }
+                    else -> false
+                }
             }
         }
     }
