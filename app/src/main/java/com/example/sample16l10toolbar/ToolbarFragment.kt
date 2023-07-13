@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -42,9 +43,23 @@ class ToolbarFragment : Fragment() {
 //                    false
 //                }
                 when (it.itemId) {
-                    R.id.menu_item1 -> {
-                        Toast.makeText(
-                            requireContext(), "Menu1", Toast.LENGTH_SHORT).show()
+                    R.id.menu_search -> {
+                        toolbar
+                            .menu
+                            .findItem(R.id.menu_search)
+                            .actionView
+                            .let { it as SearchView }
+                            .setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                                override fun onQueryTextSubmit(p0: String): Boolean {
+                                    TODO("Not yet implemented")
+                                }
+
+                                override fun onQueryTextChange(p0: String): Boolean {
+                                    TODO("Not yet implemented")
+                                }
+                            })
+//                        Toast.makeText(
+//                            requireContext(), "Menu1", Toast.LENGTH_SHORT).show()
                         true
                     }
                     R.id.menu_item2 -> {

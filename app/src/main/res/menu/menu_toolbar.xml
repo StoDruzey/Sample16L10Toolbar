@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_item1"
+        android:id="@+id/menu_search"
         app:showAsAction="always"
-        android:icon="@android:drawable/btn_plus"
-        android:title="Plus"/>
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search"
+        app:actionViewClass="android.widget.SearchView"/>
 
     <item
         android:id="@+id/menu_item2"
